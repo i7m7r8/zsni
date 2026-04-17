@@ -1,26 +1,15 @@
-# =====================================================
-# Wrangler configuration for Cloudflare Pages Project
-# Repository: zsni
-# Purpose: Deploy _worker.js as a Pages Function
-# =====================================================
-
-name = "zsni"
+# wrangler.toml
+name = "edgetunnel"
 main = "_worker.js"
-compatibility_date = "2026-04-17"
+compatibility_date = "2024-12-28"
 
-# Enable Node.js compatibility (required for many V2Ray scripts)
-compatibility_flags = [ "nodejs_compat" ]
+# --- Variables (can be set here or in Cloudflare Dashboard) ---
+[vars]
+ADMIN = "your-strong-admin-password" # Required: Admin panel password
+UUID = "90cd4a77-141a-43c9-991b-08263cfe9c10" # Optional: Primary UUID
+# PROXYIP = "proxyip.cmliussss.net:443" # Optional: Custom Proxy IP
+# KEY = "CMLiussss"                    # Optional: Quick subscription key
 
-# Optional: Increase memory limit if script is large
-# (Free plan max is 128 MB, Paid can go up to 512 MB)
-# limits = { cpu_ms = 500 }
-
-# Define the static site bucket (root directory)
-[site]
-bucket = "./"
-
-# If you need environment variables, you can define them here
-# BUT it's safer to set them in the Cloudflare Dashboard UI
-# [env.production.vars]
-# UUID = "your-uuid-here"
-# ADMIN = "your-admin-password"
+# --- Production Environment (Example) ---
+[env.production]
+name = "edgetunnel-prod"
