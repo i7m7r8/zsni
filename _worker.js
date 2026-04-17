@@ -101,7 +101,7 @@ const errorResponse = { msg: 'Verify preferred API failed, failure reason: ' + e
 return new Response(JSON.stringify(errorResponse, null, 2), { status: 500, headers: { 'Content-Type': 'application/json;charset=utf-8' } });
 }
 }
-return new Response(JSON.stringify({ success: false,  [] }, null, 2), { status: 403, headers: { 'Content-Type': 'application/json;charset=utf-8' } });
+return new Response(JSON.stringify({ success: false, data: [] }, null, 2), { status: 403, headers: { 'Content-Type': 'application/json;charset=utf-8' } });
 } else if (accessPath === 'admin/check') {// Proxy check
 const proxyProtocol = url.searchParams.has('socks5') ? 'socks5' : (url.searchParams.has('http') ? 'http' : (url.searchParams.has('https') ? 'https' : null));
 if (!proxyProtocol) return new Response(JSON.stringify({ error: 'Missing proxy parameter' }), { status: 400, headers: { 'Content-Type': 'application/json;charset=utf-8' } });
