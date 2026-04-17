@@ -1,0 +1,26 @@
+# =====================================================
+# Wrangler configuration for Cloudflare Pages Project
+# Repository: zsni
+# Purpose: Deploy _worker.js as a Pages Function
+# =====================================================
+
+name = "zsni"
+main = "_worker.js"
+compatibility_date = "2026-04-17"
+
+# Enable Node.js compatibility (required for many V2Ray scripts)
+compatibility_flags = [ "nodejs_compat" ]
+
+# Optional: Increase memory limit if script is large
+# (Free plan max is 128 MB, Paid can go up to 512 MB)
+# limits = { cpu_ms = 500 }
+
+# Define the static site bucket (root directory)
+[site]
+bucket = "./"
+
+# If you need environment variables, you can define them here
+# BUT it's safer to set them in the Cloudflare Dashboard UI
+# [env.production.vars]
+# UUID = "your-uuid-here"
+# ADMIN = "your-admin-password"
